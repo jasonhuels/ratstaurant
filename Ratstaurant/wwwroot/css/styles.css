@@ -1,3 +1,15 @@
 ﻿a, u {
   text-decoration: none!important;
 }
+
+pre
+{
+  border: 0;
+  font-size: 9px;
+  background-color: transparent;
+}
+
+.well
+{
+  width: 23%
+}

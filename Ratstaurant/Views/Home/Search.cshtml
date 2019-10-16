@@ -1,0 +1,14 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Ratstaurant.Models;
+@model Ratstaurant.Models.Restaurant;
+
+<h1>Search Results</h1>
+
+
+    <li>@Html.ActionLink($"{Model.Name}", "Details", "Restaurants", new { id = Model.ID }) | @Model.Cuisine.Type</li>
+
+
+<p>@Html.ActionLink("Back", "Index")</p>

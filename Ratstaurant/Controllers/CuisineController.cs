@@ -19,6 +19,8 @@ namespace Ratstaurant.Controllers
         public ActionResult Index()
         {
         List<Cuisine> model = _db.Cuisine.ToList();
+        model = model.OrderBy(s => s.Type).ToList();
+
         return View(model);
         }
 

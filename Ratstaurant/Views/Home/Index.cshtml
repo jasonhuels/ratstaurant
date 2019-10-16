@@ -2,6 +2,17 @@
   Layout = "_Layout";
 }
 
+@model Ratstaurant.Models.Restaurant;
+
 <h1>Welp.  ¯\_(ツ)_/¯</h1>
 <a href="/restaurants">See all Restaurants</a>
 <p>@Html.ActionLink("See all Cuisines", "Index", "Cuisines")</p>
+
+<div class="well">
+@using (Html.BeginForm())
+  {
+      //@Html.TextBoxFor(model => model.Name)
+      <input type="text" name="search"/>
+      <input type="submit" value="Search" />
+  }
+</div>
