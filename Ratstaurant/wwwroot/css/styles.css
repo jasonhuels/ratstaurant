@@ -9,7 +9,13 @@ pre
   background-color: transparent;
 }
 
-.well
+#search-well
 {
   width: 23%
+}
+
+#rat-king
+{
+  background-color: black;
+  color: white;
 }
