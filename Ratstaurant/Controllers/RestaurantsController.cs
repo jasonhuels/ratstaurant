@@ -4,24 +4,24 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Ratstaurant.Models;
 
 namespace Ratstaurant.Controllers
 {
-    public class RestaurantController : Controller
+    public class RestaurantsController : Controller
     {
        private readonly RatstaurantContext _db;
 
-        public RestaurantController(RatstaurantContext db)
+        public RestaurantsController(RatstaurantContext db)
         {
             _db = db;
         }
 
         public ActionResult Index(string orderVar)
         {
-            System.Console.WriteLine(orderVar);
-            List<Restaurant> model = _db.Restaurants.ToList();
+            List<Restaurant> model = _db.Restaurants.Include(restaurants => restaurants.Cuisine).ToList();
            
             ViewBag.NameSortParm = String.IsNullOrEmpty(orderVar) ? "name_desc" : "";
             ViewBag.PriceSortParm = orderVar == "Price" ? "price_desc" : "Price";
@@ -54,6 +54,7 @@ namespace Ratstaurant.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.CuisineID = new SelectList(_db.Cuisine, "ID", "Type");
             return View();
         }
 
@@ -73,7 +74,8 @@ namespace Ratstaurant.Controllers
 
         public ActionResult Edit(int id)
         {
-            Restaurant thisRestaurant = _db.Restaurants.FirstOrDefault(restaurants => restaurants.ID == id);
+            var thisRestaurant = _db.Restaurants.FirstOrDefault(restaurants => restaurants.ID == id);
+            ViewBag.CuisineId = new SelectList(_db.Cuisine, "ID", "Type");
             return View(thisRestaurant);
         }
 

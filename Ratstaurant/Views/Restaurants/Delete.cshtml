@@ -1,0 +1,14 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Ratstaurant.Models.Restaurant
+
+<h2>Shutter this ratshack</h2>
+
+@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
+@using (Html.BeginForm())
+{
+    <input type="submit" value="shutter" />
+}
+@Html.ActionLink("Back to List", "Index")

@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Ratstaurant.Models;
+@model List<Ratstaurant.Models.Cuisine>;
+
+<h1>Cuisines</h1>
+
+@if (@Model.Count == 0)
+{
+    <h3>Welp, no cuisines have been added yet!</h3>
+} 
+
+@foreach (Cuisine cuisine in Model)
+{
+    <li>@Html.ActionLink($"{cuisine.Type}", "Details", new { id = cuisine.ID })</li>
+}
+
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
+<p>@Html.ActionLink("Add a Cuisine", "Create")</p>

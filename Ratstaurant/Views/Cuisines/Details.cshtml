@@ -1,0 +1,12 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Ratstaurant.Models.Cuisine
+
+<h2>Cuisine Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Type): @Html.DisplayFor(model => model.Type)</h3>
+<p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Update cuisine", "Edit", new { id = Model.ID })</p>
+<p>@Html.ActionLink("Eliminate cuisine", "Delete", new { id = Model.ID })</p>

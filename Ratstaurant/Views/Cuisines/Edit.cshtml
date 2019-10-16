@@ -1,0 +1,14 @@
+@model Ratstaurant.Models.Cuisine
+
+<h2>Edit</h2>
+
+<h4>Edit this cuisine: @Html.DisplayFor(model => model.Type)</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.ID)
+    @Html.LabelFor(model => model.Type)
+    @Html.TextBoxFor(model => model.Type)
+    <input type="submit" value="Save" />
+}
+<p>@Html.ActionLink("Back to list", "Index")</p>

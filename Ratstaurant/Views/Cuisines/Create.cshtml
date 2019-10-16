@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Ratstaurant.Models.Cuisine
+
+  <h4>Add A Cuisine:</h4>
+  <div class="well">
+  @using (Html.BeginForm())
+  {
+      @Html.LabelFor(model => model.Type)
+      @Html.TextBoxFor(model => model.Type)
+
+      <input type="submit" value="Add new cuisine" />
+  }
+  <p>@Html.ActionLink("Show all cuisines", "Index")</p>
+  </div>

@@ -8,6 +8,7 @@ namespace Ratstaurant.Models
         public string Name {get; set;}
         public string Address {get; set;}
         public int CuisineID {get; set;}
+        public virtual Cuisine Cuisine {get; set;}
         public int Rat {get; set;}
         public int Price {get; set;}
     }

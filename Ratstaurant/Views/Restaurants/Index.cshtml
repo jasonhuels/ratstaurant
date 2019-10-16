@@ -1,0 +1,27 @@
+  
+@{
+  Layout = "_Layout";
+}
+
+@using Ratstaurant.Models;
+@model List<Ratstaurant.Models.Restaurant>;
+
+<h1>Restaurants</h1>
+
+@Html.ActionLink("Sort by Name", "Index", new { orderVar = ViewBag.NameSortParm })
+@Html.ActionLink("Sort by Rats", "Index", new { orderVar = ViewBag.RatSortParm })
+@Html.ActionLink("Sort by Price", "Index", new { orderVar = ViewBag.PriceSortParm })
+
+@if (@Model.Count == 0)
+{
+    <h3>No restaurants have been added yet!</h3>
+} 
+
+
+@foreach (Restaurant restaurant in Model)
+{
+    <li>@Html.ActionLink($"{restaurant.Name}", "Details", new { id = restaurant.ID }) | @restaurant.Cuisine.Type</li>
+}
+
+<p>@Html.ActionLink("Add new restaurant", "Create")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
